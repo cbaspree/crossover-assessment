@@ -9,8 +9,8 @@ public class FetchDataTest
     public async Task CreateStacks()
     {
         // request the data from the api endpoint
-        const string url = "https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack";
-        RequestResult result = await HttpRequester.Get(url);
+        const string _url = "https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack";
+        RequestResult result = await HttpRequester.Get(_url);
 
         Assert.IsNotNull(result);
         Assert.IsNull(result.Error);
@@ -25,7 +25,9 @@ public class FetchDataTest
         Assert.AreNotEqual(0, blockModels.Length);
 
         // create the stacks per grade
-        List<string> grades = StackFactory.CategorizeBlocksPerGrade(blockModels);
+        StackFactory.CategorizeBlocksPerGrade(blockModels);
+
+        List<string> grades = StackFactory.Grades;
 
         Assert.IsNotNull(grades);
         Assert.AreNotEqual(0, grades.Count);

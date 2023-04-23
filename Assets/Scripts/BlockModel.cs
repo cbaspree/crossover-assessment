@@ -23,5 +23,11 @@ public class BlockModel
     [SerializeField]
     private string standarddescription;
 
+    public int Id { get => id; }
     public string Grade { get => grade; }
+    public int Mastery { get => mastery; }
+    public string Domain { get => domain; }
+    public string Cluster { get => cluster; }
+    public string Standardid { get => standardid; }
+    public string StandardDescription { get => standarddescription; }
 }

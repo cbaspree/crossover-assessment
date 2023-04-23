@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4739401320053735854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4739401320053735840}
+  - component: {fileID: 4739401320053735841}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4739401320053735840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739401320053735854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4739401320053735841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739401320053735854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7259054d7abaeab4fa0227e12844784d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _url: https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack
+  _loadingWidgetPrefab: {fileID: 2039821182060944426, guid: 690a757c2ce6f0f4299d35e625410607, type: 3}
+  _detailWidgetPrefab: {fileID: 2144842760405301554, guid: 660f93dd3cfd6b348b79f7e73b022c20, type: 3}
+  _glassMaterial: {fileID: 2100000, guid: 432e0a46757f02a4fb567d67f683236c, type: 2}
+  _woodMaterial: {fileID: 2100000, guid: 2f5aab5a7a5aa1145997d0e48dc10332, type: 2}
+  _stoneMaterial: {fileID: 2100000, guid: 5f73475cf0cad364b9800b85c2a229fc, type: 2}
+  _blockPrefab: {fileID: 720284065445305161, guid: 7d28c63c7af683144a91c7957c9b7ed5, type: 3}
+  _towerPrefab: {fileID: 6026978654106814873, guid: 3e6657b20d7e07640bc9697ee5b6a714, type: 3}
