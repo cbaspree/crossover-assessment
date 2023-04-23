@@ -58,7 +58,7 @@ public class Game : MonoBehaviour
         _camera = FindObjectOfType<WorldCamera>();
         _table = FindObjectOfType<Table>();
 
-        _inputListener = FindAnyObjectByType<InputListener>();
+        _inputListener = FindObjectOfType<InputListener>();
         _inputListener.Initialise();
         
         _inputListener.SubscribeDragListener(_camera);
