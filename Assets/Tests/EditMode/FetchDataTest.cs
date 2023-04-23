@@ -9,8 +9,8 @@ public class FetchDataTest
     public async Task CreateStacks()
     {
         // request the data from the api endpoint
-        const string _url = "https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack";
-        RequestResult result = await HttpRequester.Get(_url);
+        const string url = "https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack";
+        RequestResult result = await HttpRequester.Get(url);
 
         Assert.IsNotNull(result);
         Assert.IsNull(result.Error);

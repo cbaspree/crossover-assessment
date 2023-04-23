@@ -26,9 +26,9 @@ public class Anchor : MonoBehaviour
         
         _widthwisePositions = new Vector3[] { _left, _center, _right };
 
-        _front = new Vector3(Center.x, Center.y, Center.z + (_blockWidth + _gapBetweenBlocks));
-        _back = new Vector3(Center.x, Center.y, Center.z - (_blockWidth + _gapBetweenBlocks));
+        _front = new Vector3(_center.x, _center.y, _center.z + (_blockWidth + _gapBetweenBlocks));
+        _back = new Vector3(_center.x, _center.y, _center.z - (_blockWidth + _gapBetweenBlocks));
 
-        _lengthwisePositions = new Vector3[] { _front, Center, _back };
+        _lengthwisePositions = new Vector3[] { _front, _center, _back };
     }
 }

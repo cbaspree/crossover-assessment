@@ -54,9 +54,9 @@ public class Table : MonoBehaviour
             Vector3 localPosition = anchor.transform.localPosition;
 
             float anchorWidth = anchor.transform.localScale.x;
-            int blockNumberBetweenAnchors = 5;
+            int distanceBetweenAnchors = 5;
 
-            anchor.transform.localPosition = new Vector3(anchorWidth * blockNumberBetweenAnchors * i,
+            anchor.transform.localPosition = new Vector3(anchorWidth * distanceBetweenAnchors * i,
                 localPosition.y,
                 localPosition.z);
 

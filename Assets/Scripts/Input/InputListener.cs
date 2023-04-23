@@ -49,7 +49,7 @@ public class InputListener : MonoBehaviour
     private List<IClickHandler> _clickHandlers;
     private List<IDragHandler> _dragHandlers;
 
-    public void Initialise(Camera activeCamera)
+    public void Initialise()
     {
         _activeInput = new UserInput();
         _activeGesture = Gesture.None;

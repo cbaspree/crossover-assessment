@@ -16,7 +16,7 @@ public class WorldCamera : MonoBehaviour, IDragHandler
     [SerializeField]
     private GameObject _rotatePivot;
     [SerializeField]
-    private float _initialVerticalAngle = 355.0f;
+    private float _initialVerticalAngle = 0.0f;
 
     [Header("Camera Movement Parameters")]
     

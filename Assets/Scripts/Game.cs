@@ -33,7 +33,7 @@ public class Game : MonoBehaviour
 
     private WorldCamera _camera;
     private Table _table;
-    private InputListener _inputCollector;
+    private InputListener _inputListener;
 
     private LoadingWidget _loadingWidget;
     private DetailWidget _detailWidget;
@@ -58,18 +58,18 @@ public class Game : MonoBehaviour
         _camera = FindObjectOfType<WorldCamera>();
         _table = FindObjectOfType<Table>();
 
-        _inputCollector = FindAnyObjectByType<InputListener>();
-        _inputCollector.Initialise(_camera.Camera);
+        _inputListener = FindAnyObjectByType<InputListener>();
+        _inputListener.Initialise();
         
-        _inputCollector.SubscribeDragListener(_camera);
+        _inputListener.SubscribeDragListener(_camera);
 
         ClickOnBlockHandler clickOnBlockHandler 
             = new ClickOnBlockHandler(_camera.Camera, _detailWidget);
-        _inputCollector.SubscribeClickListener(clickOnBlockHandler);
+        _inputListener.SubscribeClickListener(clickOnBlockHandler);
 
         ClickOnTowerHandler clickOnTowerHandler
             = new ClickOnTowerHandler(_camera, SelectTower);
-        _inputCollector.SubscribeClickListener(clickOnTowerHandler);
+        _inputListener.SubscribeClickListener(clickOnTowerHandler);
 
         RequestResult result = await HttpRequester.Get(_url);
 
@@ -85,6 +85,7 @@ public class Game : MonoBehaviour
         _table.Initialise(grades.Count);
         List<Anchor> anchors = _table.Anchors;
 
+        // select middle stack from left to right
         int middle = (anchors.Count - 1 ) / 2;
         _camera.LookAtTarget(anchors[middle].transform);
 
@@ -94,7 +95,7 @@ public class Game : MonoBehaviour
 
         _towers = new List<Tower>();
         TowerBuilder towerBuilder = new TowerBuilder(_blockPrefab, _towerPrefab);
-        
+
         for (int i = 0; i < grades.Count; ++i)
         {
             string grade = grades[i];
@@ -108,14 +109,6 @@ public class Game : MonoBehaviour
 
         _loadingWidget.Hide();
         _controlsWidget.Show();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TestSelectedTower();
-        }
     }
 
     private void TestSelectedTower()

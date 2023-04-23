@@ -35,9 +35,9 @@ public class Tower : MonoBehaviour
     {
         int blockCount = 0;
         int floor = 0;
-        for (int i = 0; i < _models.Count; i += 3)
+        for (int i = 0; i < _models.Count; ++i)
         {
-            Block block = Object.Instantiate(_blockPrefab, transform, false);
+            Block block = Instantiate(_blockPrefab, transform, false);
             BlockModel model = _models[i];
             block.Initialise(this,
                 model,

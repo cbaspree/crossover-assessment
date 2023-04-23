@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class JsonDeserializer
+public class JsonArrayDeserializer
 {
     [Serializable]
     private class Wrapper<T>
@@ -9,7 +9,7 @@ public class JsonDeserializer
         public T[] Array;
     }
 
-    public static T[] FromJsonArray<T>(string jsonContent)
+    public static T[] FromJson<T>(string jsonContent)
     {
         string newJson = "{ \"Array\": " + jsonContent + "}";
         Wrapper<T> wrapper;
