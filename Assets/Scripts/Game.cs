@@ -12,6 +12,8 @@ public class Game : MonoBehaviour
     private LoadingWidget _loadingWidgetPrefab;
     [SerializeField]
     private DetailWidget _detailWidgetPrefab;
+    [SerializeField]
+    private ControlsWidget _controlsWidgetPrefab;
 
     [Header("Materials")]
 
@@ -35,6 +37,10 @@ public class Game : MonoBehaviour
 
     private LoadingWidget _loadingWidget;
     private DetailWidget _detailWidget;
+    private ControlsWidget _controlsWidget;
+
+    private Tower _selectedTower;
+    private List<Tower> _towers;
 
     private async void Awake()
     {
@@ -43,6 +49,10 @@ public class Game : MonoBehaviour
 
         _detailWidget = Instantiate(_detailWidgetPrefab);
         _detailWidget.Hide();
+
+        _controlsWidget = Instantiate(_controlsWidgetPrefab);
+        _controlsWidget.Initialise(TestSelectedTower, ResetTestedTower);
+        _controlsWidget.Hide();
 
         // Get the necessary references
         _camera = FindObjectOfType<WorldCamera>();
@@ -58,7 +68,7 @@ public class Game : MonoBehaviour
         _inputCollector.SubscribeClickListener(clickOnBlockHandler);
 
         ClickOnTowerHandler clickOnTowerHandler
-            = new ClickOnTowerHandler(_camera);
+            = new ClickOnTowerHandler(_camera, SelectTower);
         _inputCollector.SubscribeClickListener(clickOnTowerHandler);
 
         RequestResult result = await HttpRequester.Get(_url);
@@ -82,6 +92,7 @@ public class Game : MonoBehaviour
             _woodMaterial,
             _stoneMaterial);
 
+        _towers = new List<Tower>();
         TowerBuilder towerBuilder = new TowerBuilder(_blockPrefab, _towerPrefab);
         
         for (int i = 0; i < grades.Count; ++i)
@@ -90,8 +101,35 @@ public class Game : MonoBehaviour
             Anchor anchor = anchors[i];
             List<BlockModel> models = StackFactory.GetBlocksPerGrade(grade);
             Tower tower = towerBuilder.Build(grade, anchor, models);
+            _towers.Add(tower);
         }
 
+        SelectTower(_towers[middle]);
+
         _loadingWidget.Hide();
+        _controlsWidget.Show();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TestSelectedTower();
+        }
+    }
+
+    private void TestSelectedTower()
+    {
+        _selectedTower.TestTheTower();
+    }
+
+    private void ResetTestedTower()
+    {
+        _selectedTower.ReBuild();
+    }
+
+    private void SelectTower(Tower tower)
+    {
+        _selectedTower = tower;
     }
 }

@@ -47,6 +47,7 @@ MonoBehaviour:
   _url: https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack
   _loadingWidgetPrefab: {fileID: 2039821182060944426, guid: 690a757c2ce6f0f4299d35e625410607, type: 3}
   _detailWidgetPrefab: {fileID: 2144842760405301554, guid: 660f93dd3cfd6b348b79f7e73b022c20, type: 3}
+  _controlsWidgetPrefab: {fileID: 2994473450881525736, guid: 7ac3d32e629617542ba499f647dceb41, type: 3}
   _glassMaterial: {fileID: 2100000, guid: 432e0a46757f02a4fb567d67f683236c, type: 2}
   _woodMaterial: {fileID: 2100000, guid: 2f5aab5a7a5aa1145997d0e48dc10332, type: 2}
   _stoneMaterial: {fileID: 2100000, guid: 5f73475cf0cad364b9800b85c2a229fc, type: 2}

@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class Block : MonoBehaviour, IClickable
@@ -7,6 +6,8 @@ public class Block : MonoBehaviour, IClickable
 
     [SerializeField]
     private MeshRenderer _renderer;
+    [SerializeField]
+    private Rigidbody _rigidbody;
     [SerializeField]
     private Color _highlightColor;
     [SerializeField]
@@ -40,5 +41,15 @@ public class Block : MonoBehaviour, IClickable
         {
             _renderer.material.SetColor(_emissionColorName, _normalColor);
         }
+    }
+
+    public void ApplyPhysics(bool apply)
+    {
+        _rigidbody.isKinematic = !apply;
+    }
+
+    private void Awake()
+    {
+        ApplyPhysics(false);
     }
 }

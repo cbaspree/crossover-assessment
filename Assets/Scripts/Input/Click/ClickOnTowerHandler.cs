@@ -8,10 +8,12 @@ public class ClickOnTowerHandler : IClickHandler
 
     private WorldCamera _worldCamera;
     private Tower _selectedTower;
+    System.Action<Tower> _towerClickedCallback;
 
-    public ClickOnTowerHandler(WorldCamera worldCamera)
+    public ClickOnTowerHandler(WorldCamera worldCamera, System.Action<Tower> towerClickedCallback)
     {
         _worldCamera = worldCamera;
+        _towerClickedCallback = towerClickedCallback;
     }
 
     public void Click(Vector2 mousePosition, int mouseButton)
@@ -45,6 +47,8 @@ public class ClickOnTowerHandler : IClickHandler
             _selectedTower = block.Parent;
             _worldCamera.ResetCameraView();
             _worldCamera.LookAtTarget(_selectedTower.transform);
+
+            _towerClickedCallback?.Invoke(_selectedTower);
         }
     }
 }
